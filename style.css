@@ -1,0 +1,104 @@
+/* Mobile First */
+body {
+    color: whitesmoke;
+    background-color: #424242;
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: aqua;
+    width: 100vw;
+    height: 100px;
+    position: fixed;
+}
+
+nav div {
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    background-color: tomato;
+    width: 100%;
+    height: 100px;
+}
+
+#panier {
+    background-color: teal;
+    position: fixed;
+    bottom: 100px;
+    width: 100%;
+    height: 50vh;
+
+
+}
+
+#panier ul {
+    list-style: none;
+    padding: 0
+}
+
+footer div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+}
+
+main {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+}
+
+h3 {
+    margin-top: 0px;
+}
+
+/*______________ Style des cards______________ */
+article {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 150px;
+    margin: 15px;
+    border: 2px solid lightcoral;
+    border-radius: 5px;
+}
+
+article div {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 150px;
+    margin: 30px
+}
+
+article img {
+    justify-self: flex-end;
+}
+
+article p {
+    margin: 8px;
+}
+
+.none {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {}
