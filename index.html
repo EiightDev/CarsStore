@@ -1,51 +1,71 @@
 <!DOCTYPE html>
 <html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Simplon Cars</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simplon Cars</title>
+        <link rel="stylesheet" href="./css/normalize.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
 
-    <link rel="stylesheet" href="./normalize.css">
-    <link rel="stylesheet" href="./style.css">
-</head>
+<!--                                                NAVIGATION                                                       -->
 
-<body>
-    <nav>
-
-        <h1>Simplon Cars</h1>
-        <div>
-            <p>Gamme de produit</p>
-            <select name="reduc" id="reduc">
-                <option>Choississez...</option>
-                <option value="bronze">Bronze</option>
-                <option value="argent">Argent</option>
-                <option value="or">Or</option>
-            </select>
-        </div>
-        <button id="init">Vider le panier</button>
-    </nav>
-
-    <main>
-    </main>
-    <div id='panier'>
-        <ul>
-            <li>Montant Initial</li>
-            <li>nombre de cars</li>
-            <li>Reduction</li>
-            <li>Montant Final</li>
-        </ul>
-        <div class="listeProduit"></div>
-    </div>
-    <footer id='footer'>
-
-        <div>
-            <p class="nbrCar"><span>0</span> véhicules</p>
-            <p class="total"><span>10000</span> €</p>
+        <nav>
+            <h1>Simplon Cars</h1>
             <a id="btnPanier">Panier</a>
-        </div>
-    </footer>
-    <script type="text/javascript" src="./backend.js"></script>
-</body>
+        </nav>
 
+<!--                                                   MAIN                                                          -->
+
+        <main id="champArticle">
+
+        </main>
+
+<!--                                                ZONE PANIER                                                      -->
+
+        <div id="panier" class="none">
+            <div class="container">
+                <div>
+                
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>Montant Initial</td>
+                            <td>0 €</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre de SimplonCars</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Reduction</td>
+                            <td>0 %</td>
+                        </tr>
+                        <tr>
+                            <td>Montant Final</td>
+                            <td>0 €</td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+                    <button>Confirmer l'achat</button>
+                    <button id="init">Vider le panier</button>
+                </div>
+                <div id="listeProduit"></div>
+            </div>
+        </div>
+
+<!--                                                  FOOTER                                                         -->
+
+
+
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js" defer></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" defer></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src="./js/backend.js" defer type="text/babel"></script>
+        <script src="./js/app.js" defer type="text/babel"></script>
+
+    </body>
 </html>
