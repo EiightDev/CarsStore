@@ -1,8 +1,6 @@
-
-
 //--------------------------------------------------------
 function Articles({data}) {
-    return <Article product{data}/>
+    return <Article product={data} />
 
 }
 
@@ -121,4 +119,3 @@ ReactDOM.render(
     <ArticleLine id={i}/>,
     document.getElementById('listeProduit')
 )
-

@@ -1,9 +1,10 @@
 /*Construction Mobile First */
 nav {
+    color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: aqua;
+    background-color: #225332;
     width: 100vw;
     height: 100px;
     position: fixed;
@@ -19,17 +20,18 @@ button {
     border-radius: 5px;
 }
 footer {
+    color: white;
     display: flex;
     justify-content: space-around;
     position: fixed;
     bottom: 0;
-    background-color: tomato;
+    background-color: #99030C;
     width: 100%;
     height: 100px;
 }
 
 #panier {
-    background-color: teal;
+    background-color: #79977A;
     position: fixed;
     bottom: 100px;
     width: 100%;
@@ -68,22 +70,13 @@ table {
     align-items: center;
     border: 1px solid black;
     margin:5px;
+    overflow-y: hidden;
 }
 #listeProduit a{
     width: 20px;
     height: 20px;
     background-color: #424242;
 }
-
-
-
-
-
-
-
-
-
-
 footer div {
     display: flex;
     justify-content: space-around;
@@ -140,6 +133,17 @@ article p {
 .none {
     display: none;
 }
-
+.or{
+    border: 1px solid gold;
+    box-shadow: gold 5px 5px 5px;
+}
+.argent{
+    border: 1px solid silver;
+    box-shadow: silver 5px 5px 5px;
+}
+.bronze{
+    border: 1px solid maroon;
+    box-shadow: maroon 5px 5px 5px;
+}
 @media screen and (min-width: 768px) {
 }

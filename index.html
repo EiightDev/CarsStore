@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Simplon Cars</title>
 
-        <link rel="stylesheet" href="./css/normalize.css" />
-        <link rel="stylesheet" href="./css/style.css" />
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simplon Cars</title>
 
-<!--                                                NAVIGATION                                                       -->
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
 
-        <nav>
-            <h1>Simplon Cars</h1>
-            <a id="btnPanier">Panier</a>
-        </nav>
+<body>
+    <!--                                     NAVIGATION                                                -->
+    <nav>
+        <h1>Squadra Cars</h1>
+        <a id="btnPanier">Panier</a>
+    </nav>
+    <!--                                        MAIN                                                   -->
+    <main id="champArticle"></main>
+    <!--                                     ZONE PANIER                                               -->
+    <div id="panier" class="none">
+        <div class="container">
+            <div>
 
-<!--                                                   MAIN                                                          -->
-
-        <main id="champArticle">
-
-        </main>
-
-<!--                                                ZONE PANIER                                                      -->
-
-        <div id="panier" class="none">
-            <div class="container">
-                <div>
-                
-                    <table>
-                        <tbody>
+                <table>
+                    <tbody>
                         <tr>
                             <td>Montant Initial</td>
                             <td>0 €</td>
@@ -48,24 +42,24 @@
                             <td>0 €</td>
                         </tr>
                     </tbody>
-                    </table>
+                </table>
 
-                    <button>Confirmer l'achat</button>
-                    <button id="init">Vider le panier</button>
-                </div>
-                <div id="listeProduit"></div>
+                <button onclick="clearPanier();alert('Félicitaions pour votre achat !!!')">Confirmer l'achat</button>
+                <button id="init" onclick="clearPanier()">Vider le panier</button>
             </div>
+            <div id="listeProduit"></div>
         </div>
+    </div>
 
-<!--                                                  FOOTER                                                         -->
+    <!--                                           FOOTER                                              -->
+    <footer id="footer">
+        <div>
+            <p className="nbrCar"><span id="totalCars"></span> véhicules</p>
+            <p className="total"><span id="totalCost"></span> €</p>
+        </div>
+    </footer>
 
+    <script src="./js/backend.js" defer type="text/javascript"></script>
 
-
-        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js" defer></script>
-        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" defer></script>
-        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-        <script src="./js/backend.js" defer type="text/babel"></script>
-        <script src="./js/app.js" defer type="text/babel"></script>
-
-    </body>
+</body>
 </html>

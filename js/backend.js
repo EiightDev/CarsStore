@@ -1,4 +1,5 @@
 //--------------Récupération des données JSON---------------
+var cars;
 
 let oReq = new XMLHttpRequest();
 oReq.onload = reqListener;
@@ -8,132 +9,163 @@ oReq.send();
 
 function reqListener() {
     const data = JSON.parse(this.responseText)
-    console.log(data)
+    console.log(data[0])
+    cars = data
 
-
-//----------------------------Gestion Panier
-    //envoyer l'objet {id, catégorie, img....}
-
-    function ajouterPanier(produit) {
-        let nombreProduit = JSON.parse(localStorage.getItem(`${produit.id}`))
-        console.log(`Le nombre de produit est ${nombreProduit}`)
-        if ( nombreProduit == null) {
-            localStorage.setItem(`${produit.id}`, JSON.stringify(1))
-            console.log('le produit est initialisé')
-        } else {
-            localStorage.setItem(`${produit.id}`, JSON.stringify(nombreProduit += 1 ))
-            console.log('le produit est incrémenté')
-        }
+console.log(cars);
+for (const key in cars) {
+    if (cars.hasOwnProperty(key)) {
+        const element = cars[key];
+        createArticle(element)
     }
-
-    function supprPanier(produit) {
-        let nombreProduit = JSON.parse(localStorage.getItem(`${produit.id}`))
-        console.log(`Le nombre de produit est ${nombreProduit}`)
-
-        if (nombreProduit == 1) {
-            localStorage.removeItem(`${produit.id}`)
-            console.log('le produit est supprimé')
-        } else if (nombreProduit > 1) {
-            localStorage.setItem(`${produit.id}`, JSON.stringify(nombreProduit -= 1))
-            console.log('le produit est décrémenté')
-        } else {
-            console.log('Produit pas dans le panier')
-        }
-    }
-
-    function clearPanier() {
-        localStorage.clear()
-    }
-
-    let totalCost = 1500000;
-    let totalCars = 15;
-
-    //Parcours le localStorage pour retourner le nombre de voiture et leur coût
-    function getTotalCost() {
-        let sumCars = [0]
-        let sumCost = [0]
-        for (let indexProduit = 0 ; indexProduit < localStorage.length  ; indexProduit++) {
-            let idProduit = localStorage.key(indexProduit)              //id du produit
-            let nbrProduit = JSON.parse(localStorage[idProduit])        //nombre de produit
-            console.log(`C'est le produit ${idProduit} et il y en a ${nbrProduit}`)
-            sumCost.push(data[idProduit].prix * nbrProduit)
-            sumCars.push(nbrProduit)
-        }
-        if (sumCost !== [] && sumCost !== []) {
-            totalCost =  sumCost.reduce((result,number)=> result+number);
-            totalCars =  sumCars.reduce((result,number)=> result+number);
-        }
-
-        console.log(`il y a ${totalCars} voitures pour ${totalCost} €`)
-    }
-
-    function applyReduc () {
-
-    }
-
+}
 
 //-------------------------- TEST PANIER ---------------------------
 
-    let listeAchat = [{'ferrari': 300000}, {'ferrari': 300000}, {'bugatti': 400000}]
+function createArticle(vehicule) {
+    let article = document.createElement('article')
+    article.setAttribute('style', `background-image:url(${vehicule.img})`)
+    article.classList.add(`${vehicule.categorie}`)
+    let h3 = document.createElement('h3')
+    h3.innerText = vehicule.modele
+    let prix = document.createElement('p')
+    prix.innerText = vehicule.prix + ' €'
 
-//_____________ Données JSON à récupérer _________________
+    let div = document.createElement('div')
+    let buttonAchat = document.createElement('button')
+    buttonAchat.innerText = 'Acheter'
+    buttonAchat.classList.add('achat')
+    buttonAchat.setAttribute('id', `${vehicule.id}`)
+    buttonAchat.setAttribute('onclick', 'ajouterPanier(cars[id])')
 
+    div.appendChild(h3)
+    div.appendChild(prix)
+    div.appendChild(buttonAchat)
+    article.appendChild(div)
 
-//_____________________________ Apparition du panier _____________________________________
+    let main = document.getElementById('champArticle');
+    main.appendChild(article)
+}
+getTotalCost()
+majPanier()
+}
 
-    let panier = document.getElementById('panier')
-    let btnPanier = document.getElementById('btnPanier')
-    btnPanier.addEventListener('click', function () {
-        panier.classList.toggle('none')
-    })
+//----------------------------Gestion Panier
+//envoyer l'objet {id, catégorie, img....}
 
-//____________________ Lister des articles à acheter ______________________________________
+function ajouterPanier(produit) {
+    let nombreProduit = JSON.parse(localStorage.getItem(`${produit.id}`))
+    console.log(`Le nombre de produit est ${nombreProduit}`)
+    if (nombreProduit == null) {
+        localStorage.setItem(`${produit.id}`, JSON.stringify(1))
+        console.log('le produit est initialisé')
+    } else {
+        localStorage.setItem(`${produit.id}`, JSON.stringify(nombreProduit += 1))
+        console.log('le produit est incrémenté')
+    }
+    getTotalCost()
+    majPanier()
+}
 
+function supprPanier(produit) {
+    let nombreProduit = JSON.parse(localStorage.getItem(`${produit.id}`))
+    console.log(`Le nombre de produit est ${nombreProduit}`)
 
-//----------------------- Rétrogradation en React.Conpenent
-//_______________ Création des articles selon le type de client
+    if (nombreProduit == 1) {
+        
+        let r = confirm('le produit sera supprimé')
+        if(r == true){
+            localStorage.removeItem(`${produit.id}`)
+        }
+        
+        
+    } else if (nombreProduit > 1) {
+        localStorage.setItem(`${produit.id}`, JSON.stringify(nombreProduit -= 1))
+        console.log('le produit est décrémenté')
+    } else {
+        ('Produit pas dans le panier')
+    }
+    getTotalCost()
+    majPanier()
+}
 
-    function createArticle(vehicule) {
-        vehicule.forEach(function (car) {
+function clearPanier() {
+    localStorage.clear()
+    getTotalCost()
+    majPanier()
+}
 
-            let article = document.createElement('article')
-            article.setAttribute('style', `background-image:url(${vehicule.img})`)
-            let h3 = document.createElement('h3')
-            h3.innerText = vehicule.modele
-            let prix = document.createElement('p')
-            prix.innerText = vehicule.prix + ' €'
+let totalCost = 1500000;
+let totalCars = 15;
 
-            let div = document.createElement('div')
-            let buttonAchat = document.createElement('button')
-            buttonAchat.innerText = 'Acheter'
-            buttonAchat.classList.add('achat')
-            buttonAchat.setAttribute('onclick', 'appel()')
-
-            div.appendChild(h3)
-            div.appendChild(prix)
-            div.appendChild(buttonAchat)
-            article.appendChild(div)
-
-            let main = document.querySelector('main');
-            main.appendChild(article)
-        });
+//Parcours le localStorage pour retourner le nombre de voiture et leur coût
+function getTotalCost() {
+    let sumCars = [0]
+    let sumCost = [0]
+    for (let indexProduit = 0; indexProduit < localStorage.length; indexProduit++) {
+        let idProduit = localStorage.key(indexProduit)          //id du produit
+        let nbrProduit = JSON.parse(localStorage[idProduit])    //nombre de produit
+        console.log(`C'est le produit ${idProduit} et il y en a ${nbrProduit}`)
+        sumCost.push(cars[idProduit].prix * nbrProduit)
+        sumCars.push(nbrProduit)
+    }
+    if (sumCost !== [] && sumCost !== []) {
+        totalCost = sumCost.reduce((result, number) => result + number);
+        totalCars = sumCars.reduce((result, number) => result + number);
     }
 
-//_______________Création des articles dans le panier
+    console.log(`il y a ${totalCars} voitures pour ${totalCost} €`)
 
-    function lineAchat(product, price) {
-        let ligneAchat = document.createElement('div')
-        let btnClose = document.createElement('a')
-        let nomProduct = document.createElement('p')
-        nomProduct.innerText = 'Ferrari F430'//product
-        let prixProduct = document.createElement('p')
-        prixProduct.innerText = '400 000 €' //price
+    document.getElementById('totalCost').innerText = totalCost
+    document.getElementById('totalCars').innerText = totalCars
 
-        ligneAchat.appendChild(nomProduct)
-        ligneAchat.appendChild(prixProduct)
-        ligneAchat.appendChild(btnClose)
+    if (totalCost > 200000) {
+        return totalCost*0.8
+    }  
+    }
 
-        let main = document.getElementById('listeProduit');
-        main.appendChild(ligneAchat)
+//_______________Créaion des articles dans le panier
+
+function lineAchat(product, nombre) {
+    let ligneAchat = document.createElement('div')
+    let nomProduct = document.createElement('p')   
+    
+    let btnPlus = document.createElement('button')
+    let nombreProduct = document.createElement('p')
+    let btnMoins = document.createElement('button')
+    let prixProduct = document.createElement('p')
+
+    nomProduct.innerText = product.modele   //product
+    prixProduct.innerText = product.prix + ' €'     //price
+    nombreProduct.innerText = nombre
+    btnPlus.setAttribute('onclick', `ajouterPanier(cars[${product.id}])`)
+    btnMoins.setAttribute('onclick', `supprPanier(cars[${product.id}])`)
+
+    ligneAchat.appendChild(nomProduct)
+    ligneAchat.appendChild(btnPlus)
+    ligneAchat.appendChild(nombreProduct)
+    ligneAchat.appendChild(btnMoins)
+    ligneAchat.appendChild(prixProduct)   
+
+    let main = document.getElementById('listeProduit');
+    main.appendChild(ligneAchat)
+}
+
+//Apparition du panier
+let panier = document.getElementById('panier')
+let btnPanier = document.getElementById('btnPanier')
+btnPanier.addEventListener('click', function () {
+    panier.classList.toggle('none')
+})
+
+function majPanier() {
+    document.getElementById('listeProduit').innerText=''
+    for (const key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+            console.log(key);
+            const element = localStorage[key];
+            console.log(element);
+            lineAchat(cars[key], localStorage[key])
+        }
     }
 }
