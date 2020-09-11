@@ -3,8 +3,9 @@ var cars;
 
 let oReq = new XMLHttpRequest();
 oReq.onload = reqListener;
-oReq.open("get", "js/data.json", true);
+oReq.open("get", "http://localhost:8080/cars", true); //./js/data.json
 oReq.send();
+
 //--------------------------------------------------------
 
 function reqListener() {
@@ -51,6 +52,7 @@ majPanier()
 }
 
 //----------------------------Gestion Panier
+
 //envoyer l'objet {id, catégorie, img....}
 
 function ajouterPanier(produit) {
