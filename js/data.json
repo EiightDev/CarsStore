@@ -16,23 +16,23 @@
   "2": {
     "id": 2,
     "categorie": "or",
-    "img": "./img/",
-    "modele": "Modele Luxe 3",
-    "prix": 39999
+    "img": "./img/audirs7.jpg",
+    "modele": "Audi RS7 Sportback",
+    "prix": 139999
   },
   "3": {
     "id": 3,
     "categorie": "or",
-    "img": "./img/",
-    "modele": "Modele Luxe 4",
-    "prix": 49999
+    "img": "./img/maserati.jpg",
+    "modele": "Maserati GranTurismo",
+    "prix": 153250
   },
   "4": {
     "id": 4,
     "categorie": "or",
-    "img": "./img/ferrari.jpg",
-    "modele": "Ferrari F430",
-    "prix": 300000
+    "img": "./img/jaguarxj.jpg",
+    "modele": "Jaguar XJ",
+    "prix": 121990
   },
   "5": {
     "id": 5,
@@ -44,9 +44,9 @@
   "6": {
     "id": 6,
     "categorie": "argent",
-    "img": "./img/",
-    "modele": "nom du véhicule B",
-    "prix": 15999
+    "img": "./img/bmwm3.jpg",
+    "modele": "BMW Serie 3",
+    "prix": 47200
   },
   "7": {
     "id": 7,

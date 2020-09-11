@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simplon Cars</title>
+    <title>Squadra Cars</title>
 
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
-    <!--                                     NAVIGATION                                                -->
+        
     <nav>
         <h1>Squadra Cars</h1>
         <a id="btnPanier">Panier</a>
     </nav>
-    <!--                                        MAIN                                                   -->
+        
     <main id="champArticle"></main>
-    <!--                                     ZONE PANIER                                               -->
+    
     <div id="panier" class="none">
         <div class="container">
             <div>
@@ -26,31 +26,30 @@
                     <tbody>
                         <tr>
                             <td>Montant Initial</td>
-                            <td>0 €</td>
+                            <td id="mi-panier">0 €</td>
                         </tr>
                         <tr>
-                            <td>Nombre de SimplonCars</td>
-                            <td>0</td>
+                            <td>Nombre de Squadra Cars</td>
+                            <td id="nbr-panier">0</td>
                         </tr>
                         <tr>
                             <td>Reduction</td>
-                            <td>0 %</td>
+                            <td id="reduc">0 %</td>
                         </tr>
                         <tr>
                             <td>Montant Final</td>
-                            <td>0 €</td>
+                            <td id="mf-panier">0 €</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <button onclick="clearPanier();alert('Félicitaions pour votre achat !!!')">Confirmer l'achat</button>
+                <button id='comfirmation'>Confirmer l'achat</button>
                 <button id="init" onclick="clearPanier()">Vider le panier</button>
             </div>
             <div id="listeProduit"></div>
         </div>
     </div>
 
-    <!--                                           FOOTER                                              -->
     <footer id="footer">
         <div>
             <p className="nbrCar"><span id="totalCars"></span> véhicules</p>

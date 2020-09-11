@@ -1,4 +1,7 @@
 /*Construction Mobile First */
+body{
+    text-align: center;
+}
 nav {
     color: white;
     display: flex;
@@ -13,12 +16,14 @@ nav {
 nav div {
     text-align: center;
 }
+
 button {
-    background-color: #424242;
+    background-color: #225332;
     color: whitesmoke;
     padding: 10px 15px 10px 15px;
     border-radius: 5px;
 }
+
 footer {
     color: white;
     display: flex;
@@ -42,41 +47,51 @@ footer {
     list-style: none;
     padding: 0;
 }
+
 .container {
     height: 90%;
     width: 100%;
     padding: 20px;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     justify-content: space-around;
-    text-align: center;
+    align-items: center;
 }
+
 table {
-    margin: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: justify;
 }
+
 #listeProduit {
     background-color: lightyellow;
-    height: 100%;
-    width: 55%;
+    height: 50%;
+    width: 90%;
     display: flex;
     flex-flow: column nowrap;
     overflow: scroll;
 }
 
-#listeProduit div{
+#listeProduit div {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-between ;
     align-items: center;
     border: 1px solid black;
-    margin:5px;
+    margin: 5px;
     overflow-y: hidden;
 }
-#listeProduit a{
+#listeProduit div:after{
+    width: 20%;
+}
+
+#listeProduit a {
     width: 20px;
     height: 20px;
     background-color: #424242;
 }
+
 footer div {
     display: flex;
     justify-content: space-around;
@@ -118,8 +133,10 @@ article div {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    height: 100%;
     width: 150px;
-    margin: 30px;
+    padding: 10px 30px 10px 0px;
+    background-color: #FFFFFF;
 }
 
 article img {
@@ -129,21 +146,69 @@ article img {
 article p {
     margin: 8px;
 }
-
 .none {
     display: none;
 }
-.or{
+
+/*-- coloration de catégorie de véhicule --*/
+.or {
     border: 1px solid gold;
-    box-shadow: gold 5px 5px 5px;
+    box-shadow: goldenrod 5px 5px 5px;
+    color: goldenrod;
 }
-.argent{
+
+.argent {
     border: 1px solid silver;
     box-shadow: silver 5px 5px 5px;
+    color: silver;
 }
-.bronze{
+
+
+.bronze {
     border: 1px solid maroon;
-    box-shadow: maroon 5px 5px 5px;
+    box-shadow: brown 5px 5px 5px;
+    color: brown;
 }
-@media screen and (min-width: 768px) {
+
+@media screen and (min-width: 960px) {
+    main {
+        flex-flow: row wrap;
+    }
+
+    button:hover {
+        background-color: whitesmoke;
+        color: #424242;
+        padding: 10px 15px 10px 15px;
+        border-radius: 5px;
+    }
+
+    article {
+        flex-flow: column wrap;
+        width: 30%;
+        height: 300px;
+        background-size: 100%;
+        background-position: center;
+    }
+
+    article div {        
+        justify-content: space-around;
+        align-items: center;
+        margin: 0;
+        width: calc(100% - 10px);
+        height: 30%;
+        opacity: 0;
+        border-radius: 5px;;
+        margin: 5px;
+        padding: 10px 0 10px 0;
+    }
+
+    article div:hover {
+        opacity: 1;
+        background-color: #424242;
+    }
+
+    #listeProduit {
+        width: 55%;
+        height: 100%;
+    }
 }
