@@ -51,57 +51,57 @@
   "7": {
     "id": 7,
     "categorie": "argent",
-    "img": "./img/",
-    "modele": "nom du véhicule C",
-    "prix": 16999
+    "img": "./img/mercedescla.jpg",
+    "modele": "Mercedes CLA",
+    "prix": 54900 
   },
   "8": {
     "id": 8,
     "categorie": "argent",
-    "img": "./img/",
-    "modele": "nom du véhicule D",
-    "prix": 17999
+    "img": "./img/golf.jpg",
+    "modele": "Volkswagen Golf",
+    "prix": 37900
   },
   "9": {
     "id": 9,
     "categorie": "argent",
-    "img": "./img/",
-    "modele": "nom du véhicule E",
-    "prix": 18999
+    "img": "./img/mustang.jpg",
+    "modele": "Ford Mustang Fastback",
+    "prix": 55800
   },
   "10": {
     "id": 10,
     "categorie": "bronze",
-    "img": "./img/",
-    "modele": "véhicule nulle",
-    "prix": 9999
+    "img": "./img/peugeot308.jpg",
+    "modele": "Peugeot 308",
+    "prix": 24300 
   },
   "11": {
     "id": 11,
     "categorie": "bronze",
-    "img": "./img/",
-    "modele": "véhicule nulle",
-    "prix": 8999
+    "img": "./img/renaultclio.jpg",
+    "modele": "Renault Clio",
+    "prix": 21960
   },
   "12": {
     "id": 12,
     "categorie": "bronze",
-    "img": "./img/",
-    "modele": "véhicule nulle",
-    "prix": 7999
+    "img": "./img/mazda3.jpg",
+    "modele": "Mazda 3",
+    "prix": 24900
   },
   "13": {
     "id": 13,
     "categorie": "bronze",
-    "img": "./img/",
-    "modele": "véhicule nulle",
-    "prix": 6999
+    "img": "./img/fiattipo.jpg",
+    "modele": "Fiat Tipo",
+    "prix": 14990 
   },
   "14": {
     "id": 14,
     "categorie": "bronze",
-    "img": "./img/",
-    "modele": "véhicule nulle",
-    "prix": 5999
+    "img": "./img/citroenc4.jpg",
+    "modele": "Citroen C4",
+    "prix": 28500
   }
 }

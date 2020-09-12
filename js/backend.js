@@ -28,7 +28,7 @@ function reqListener() {
         let h3 = document.createElement('h3')
         h3.innerText = vehicule.modele
         let prix = document.createElement('p')
-        prix.innerText = vehicule.prix + ' €'
+        prix.innerText = formatage(vehicule.prix) + ' €'
 
         let div = document.createElement('div')
         let buttonAchat = document.createElement('button')
@@ -88,7 +88,12 @@ function supprPanier(produit) {
     getTotalCost()
     majPanier()
 }
-
+document.getElementById('init') .addEventListener('click', () => {
+    if(confirm('Etes-vous sûr de vouloir vider votre panier ?')){
+        clearPanier()
+    }
+    
+})
 function clearPanier() {
     localStorage.clear()
     getTotalCost()
@@ -113,7 +118,7 @@ function getTotalCost() {
         totalCost = sumCost.reduce((result, number) => result + number);
         totalCars = sumCars.reduce((result, number) => result + number);
     }
-    document.getElementById('mi-panier').innerText = totalCost + ' €'
+    document.getElementById('mi-panier').innerText = formatage(totalCost) + ' €'
 
     if (totalCost > 4000000) {
         totalCost = totalCost * 0.9
@@ -125,11 +130,10 @@ function getTotalCost() {
         document.getElementById('reduc').innerText = '0 %'
     }
 
-    document.getElementById('mf-panier').innerText = totalCost + ' €'
+    document.getElementById('mf-panier').innerText = formatage(totalCost) + ' €'
     document.getElementById('nbr-panier').innerText = totalCars
-    document.getElementById('totalCost').innerText = totalCost
+    document.getElementById('totalCost').innerText = formatage(totalCost)
     document.getElementById('totalCars').innerText = totalCars
-
 
 }
 
@@ -145,7 +149,7 @@ function lineAchat(product, nombre) {
     let prixProduct = document.createElement('p')
 
     nomProduct.innerText = product.modele
-    prixProduct.innerText = product.prix + ' €'
+    prixProduct.innerText = formatage(product.prix) + ' €'
     nombreProduct.innerText = nombre
     btnPlus.setAttribute('onclick', `ajouterPanier(cars[${product.id}])`)
     btnPlus.innerText = '+'
@@ -189,4 +193,15 @@ function majPanier() {
             lineAchat(cars[key], localStorage[key])
         }
     }
+}
+
+function formatage(nombre){
+    //arrondir à l'entier supérieur
+    nombre = Math.ceil(nombre)
+    strNombre = nombre.toString()
+    
+    //ajouter un espace tout les trois chiffres
+        
+    //retourner la chaine de caractére
+    return strNombre
 }

@@ -1,6 +1,7 @@
 /*Construction Mobile First */
 body{
     text-align: center;
+    overflow-x: hidden;
 }
 nav {
     color: white;
@@ -11,6 +12,7 @@ nav {
     width: 100vw;
     height: 100px;
     position: fixed;
+    border-radius: 0 0 10px 10px;
 }
 
 nav div {
@@ -32,7 +34,8 @@ footer {
     bottom: 0;
     background-color: #99030C;
     width: 100%;
-    height: 100px;
+    height: 105px;
+    border-radius: 5px 5px 0 0;
 }
 
 #panier {
@@ -65,12 +68,13 @@ table {
 }
 
 #listeProduit {
-    background-color: lightyellow;
+    background-color: white;
     height: 50%;
     width: 90%;
     display: flex;
     flex-flow: column nowrap;
-    overflow: scroll;
+    overflow: auto;
+    border-radius: 5px;
 }
 
 #listeProduit div {
@@ -78,12 +82,7 @@ table {
     flex-flow: row nowrap;
     justify-content: space-between ;
     align-items: center;
-    border: 1px solid black;
     margin: 5px;
-    overflow-y: hidden;
-}
-#listeProduit div:after{
-    width: 20%;
 }
 
 #listeProduit a {
@@ -165,9 +164,10 @@ article p {
 
 
 .bronze {
-    border: 1px solid maroon;
-    box-shadow: brown 5px 5px 5px;
-    color: brown;
+    border: 1px solid firebrick;
+    box-shadow: firebrick 5px 5px 5px;
+    color: #800000 ;
+    text-shadow: 1px 1px 2px floralwhite;
 }
 
 @media screen and (min-width: 960px) {
